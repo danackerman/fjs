@@ -16,7 +16,7 @@ struct fjsApp: App {
     init() {
         // let see if this works
         
-        persistenceController.fetchLocations(completion: {_ , error in
+        persistenceController.fetchAllLocations(completion: { error in
             if let error=error {
                 print(error)
                 return

@@ -21,6 +21,7 @@
 		B262639826E6935C0038A331 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639726E6935C0038A331 /* MapTests.swift */; };
 		B262639B26E694020038A331 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639A26E694020038A331 /* MockCLLocationManager.swift */; };
 		B262639D26E69E3F0038A331 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639C26E69E3F0038A331 /* APIRequest.swift */; };
+		B2CCE4E826E873B6004990D2 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCE4E726E873B6004990D2 /* RemoteDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		B262639726E6935C0038A331 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		B262639A26E694020038A331 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
 		B262639C26E69E3F0038A331 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		B2CCE4E726E873B6004990D2 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				B262639526E688760038A331 /* LocationService.swift */,
 				B262639C26E69E3F0038A331 /* APIRequest.swift */,
+				B2CCE4E726E873B6004990D2 /* RemoteDataSource.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				B262632A26E6620F0038A331 /* ContentView.swift in Sources */,
 				B262639626E688760038A331 /* LocationService.swift in Sources */,
 				B22122B026E6A62A00E04246 /* Location+CoreDataClass.swift in Sources */,
+				B2CCE4E826E873B6004990D2 /* RemoteDataSource.swift in Sources */,
 				B22122B126E6A62A00E04246 /* Location+CoreDataProperties.swift in Sources */,
 				B262632826E6620F0038A331 /* fjsApp.swift in Sources */,
 				B262639D26E69E3F0038A331 /* APIRequest.swift in Sources */,

@@ -14,8 +14,6 @@ class PersistenceController: ObservableObject  {
     private static let remoteDataImportAuthorName = "fjs Data Import"
    
     static let shared = PersistenceController()
-    private var Api = ApiRequest.shared
-
     
     private var subscriptions: Set<AnyCancellable> = []
 
@@ -67,62 +65,53 @@ class PersistenceController: ObservableObject  {
         })
     }
     
-    func fetchLocations(completion: @escaping([LocationModel]?, _ error: Error?) -> ()) {
+    //Mark: Custom Data Requests
+    public func fetchAllLocations(completion: @escaping(Error?) -> Void) {
+        let source = RemoteDataSource()
         
-        let baseURL = "https://raw.githubusercontent.com/PFJCodeChallenge/pfj-locations/master/locations.json"
-        
-        let target = (baseURL)
-                
-        let apikey = ""
-
-        Api.get(ApiKey: apikey, targetURL: target, associatedtype: [LocationModel].self) { result in
-            switch result {
-            case .success(let response):
-                completion(response, nil)
-                
-            case .failure(let error):
-                print(error.localizedDescription)
+        source.fetchLocations(completion: { locationList, error in
+            if let error=error {
+                print(error)
+                return
             }
-        }
-    }
-    
-    private func dataTaskPublisher(for url: URL) -> AnyPublisher<Data, URLError> {
-      URLSession.shared.dataTaskPublisher(for: url)
-        .compactMap { data, response -> Data? in
-          guard let httpResponse = response as? HTTPURLResponse else {
-            os_log(.error, log: OSLog.default, "Data download had no http response")
-            return nil
-          }
-          guard httpResponse.statusCode == 200 else {
-            os_log(.error, log: OSLog.default, "Data download returned http status: %d", httpResponse.statusCode)
-            return nil
-          }
             
-          return data
-        }
-        .eraseToAnyPublisher()
+            let group = DispatchGroup()
+            
+            group.enter()
+                
+            self.batchInsertLocations(locationList!)
+                
+            group.leave()
+            
+            group.notify(queue: .main) {
+                
+            }
+            
+            completion(nil)
+        })
     }
 
     private func batchInsertLocations(_ locations: [LocationModel]) {
 
         guard !locations.isEmpty else { return }
 
-      os_log(
-        .info,
-        log: .default,
-        "Batch inserting \(locations.count) locations")
+        os_log(
+            .info,
+            log: .default,
+            "Batch inserting \(locations.count) locations")
 
-      container.performBackgroundTask { context in
-        context.transactionAuthor = PersistenceController.remoteDataImportAuthorName
-        let batchInsert = self.newBatchInsertRequest(with: locations)
-        do {
-          try context.execute(batchInsert)
-          os_log(.info, log: .default, "Finished batch inserting \(locations.count) fireballs")
-        } catch {
-          let nsError = error as NSError
-          os_log(.error, log: .default, "Error batch inserting locations %@", nsError.userInfo)
+        container.performBackgroundTask { context in
+            context.transactionAuthor = PersistenceController.remoteDataImportAuthorName
+        
+            let batchInsert = self.newBatchInsertRequest(with: locations)
+            do {
+                try context.execute(batchInsert)
+                os_log(.info, log: .default, "Finished batch inserting \(locations.count) locations")
+            } catch {
+                let nsError = error as NSError
+                os_log(.error, log: .default, "Error batch inserting locations %@", nsError.userInfo)
+            }
         }
-      }
     }
 
     private func newBatchInsertRequest(with locations: [LocationModel]) -> NSBatchInsertRequest {
@@ -135,6 +124,8 @@ class PersistenceController: ObservableObject  {
             if let location = managedObject as? Location {
                 let data = locations[index]
                 location.storeNo = data.storeNo
+                location.latitude = data.latitude
+                location.longitude = data.longitude
             }
 
             index += 1
