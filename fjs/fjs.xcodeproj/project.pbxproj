@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B22122B026E6A62A00E04246 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22122AE26E6A62A00E04246 /* Location+CoreDataClass.swift */; };
+		B22122B126E6A62A00E04246 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22122AF26E6A62A00E04246 /* Location+CoreDataProperties.swift */; };
 		B262632826E6620F0038A331 /* fjsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262632726E6620F0038A331 /* fjsApp.swift */; };
 		B262632A26E6620F0038A331 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262632926E6620F0038A331 /* ContentView.swift */; };
 		B262632C26E6620F0038A331 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B262632B26E6620F0038A331 /* Assets.xcassets */; };
@@ -18,6 +20,7 @@
 		B262639626E688760038A331 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639526E688760038A331 /* LocationService.swift */; };
 		B262639826E6935C0038A331 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639726E6935C0038A331 /* MapTests.swift */; };
 		B262639B26E694020038A331 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639A26E694020038A331 /* MockCLLocationManager.swift */; };
+		B262639D26E69E3F0038A331 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262639C26E69E3F0038A331 /* APIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B22122AE26E6A62A00E04246 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B22122AF26E6A62A00E04246 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B262632426E6620F0038A331 /* fjs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fjs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B262632726E6620F0038A331 /* fjsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fjsApp.swift; sourceTree = "<group>"; };
 		B262632926E6620F0038A331 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		B262639526E688760038A331 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		B262639726E6935C0038A331 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		B262639A26E694020038A331 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
+		B262639C26E69E3F0038A331 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				B262639526E688760038A331 /* LocationService.swift */,
+				B262639C26E69E3F0038A331 /* APIRequest.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -181,6 +188,8 @@
 		B262635B26E66B190038A331 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B22122AE26E6A62A00E04246 /* Location+CoreDataClass.swift */,
+				B22122AF26E6A62A00E04246 /* Location+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,7 +334,10 @@
 				B262633126E6620F0038A331 /* Persistence.swift in Sources */,
 				B262632A26E6620F0038A331 /* ContentView.swift in Sources */,
 				B262639626E688760038A331 /* LocationService.swift in Sources */,
+				B22122B026E6A62A00E04246 /* Location+CoreDataClass.swift in Sources */,
+				B22122B126E6A62A00E04246 /* Location+CoreDataProperties.swift in Sources */,
 				B262632826E6620F0038A331 /* fjsApp.swift in Sources */,
+				B262639D26E69E3F0038A331 /* APIRequest.swift in Sources */,
 				B262633426E6620F0038A331 /* fjs.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
