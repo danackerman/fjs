@@ -19,22 +19,9 @@ struct LocationAnnotation: Identifiable {
 struct LocationsMap: View {
 
     let currentLocation = LocationService.currentLocation
-    
-    @FetchRequest(entity: Location.entity(), sortDescriptors: [])
-    var items: FetchedResults<Location>
-
-    var annotations: [LocationAnnotation] {
-
-        return items.compactMap {
-            let location = $0 as Location
+ 
+    @StateObject var persistenceController = PersistenceController.shared
         
-            return LocationAnnotation(storeNo: location.storeNo,
-                                      coordinates: CLLocationCoordinate2D(
-                                        latitude: location.latitude,
-                                        longitude: location.longitude))
-        }
-    }
-    
     @State private var region = MKCoordinateRegion(
       center: CLLocationCoordinate2D(latitude: 40.2151, longitude: -82.8799),
         span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
@@ -45,7 +32,8 @@ struct LocationsMap: View {
             interactionModes: [.all],
             showsUserLocation: true,
             //userTrackingMode: .constant(.follow),
-            annotationItems: annotations) {
+            annotationItems: persistenceController.annotations
+            ) {
                 (location) -> MapPin in
                 MapPin(coordinate: location.coordinates, tint: .red)
             
@@ -68,7 +56,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
 
         ContentView()
-
     }
 
 }

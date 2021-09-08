@@ -16,9 +16,13 @@ class PersistenceController: ObservableObject  {
     static let shared = PersistenceController()
     
     private var subscriptions: Set<AnyCancellable> = []
-
-    var places = PassthroughSubject<[LocationModel], Never>()
-
+   
+    var places = PassthroughSubject<[LocationAnnotation], Never>()
+    @Published var annotations: [LocationAnnotation] = [LocationAnnotation]() {
+        didSet {
+            places.send([])
+        }
+    }
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
@@ -63,6 +67,8 @@ class PersistenceController: ObservableObject  {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
+        self.annotations = []
     }
     
     //Mark: Custom Data Requests
@@ -80,7 +86,22 @@ class PersistenceController: ObservableObject  {
             group.enter()
                 
             self.batchInsertLocations(locationList!)
+            
+            var localannotations: [LocationAnnotation] {
+                return locationList!.compactMap {
+                        let location = $0 as LocationModel
+            
+                        return LocationAnnotation(storeNo: location.storeNo,
+                                                  coordinates: CLLocationCoordinate2D(
+                                                    latitude: location.latitude,
+                                                    longitude: location.longitude))
+                    }
+                }
                 
+            DispatchQueue.main.async {
+                self.annotations = localannotations
+             }
+            
             group.leave()
             
             group.notify(queue: .main) {
