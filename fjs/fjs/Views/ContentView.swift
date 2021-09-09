@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 import CoreData
 
+
 struct LocationAnnotation: Identifiable {
     let id = UUID()
     let storeNo: Double
@@ -50,11 +51,9 @@ struct ContentView: View {
 
 }
 
-
 struct ContentView_Previews: PreviewProvider {
 
     static var previews: some View {
-
         ContentView()
     }
 

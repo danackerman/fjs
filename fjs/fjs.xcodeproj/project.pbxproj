@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B22122B026E6A62A00E04246 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22122AE26E6A62A00E04246 /* Location+CoreDataClass.swift */; };
 		B22122B126E6A62A00E04246 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22122AF26E6A62A00E04246 /* Location+CoreDataProperties.swift */; };
+		B25A505B26E98DBD00FD1619 /* GeoFilteredLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A505A26E98DBD00FD1619 /* GeoFilteredLocations.swift */; };
 		B262632826E6620F0038A331 /* fjsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262632726E6620F0038A331 /* fjsApp.swift */; };
 		B262632A26E6620F0038A331 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262632926E6620F0038A331 /* ContentView.swift */; };
 		B262632C26E6620F0038A331 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B262632B26E6620F0038A331 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		B22122AE26E6A62A00E04246 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B22122AF26E6A62A00E04246 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B25A505A26E98DBD00FD1619 /* GeoFilteredLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFilteredLocations.swift; sourceTree = "<group>"; };
 		B262632426E6620F0038A331 /* fjs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fjs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B262632726E6620F0038A331 /* fjsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fjsApp.swift; sourceTree = "<group>"; };
 		B262632926E6620F0038A331 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				B262639526E688760038A331 /* LocationService.swift */,
 				B262639C26E69E3F0038A331 /* APIRequest.swift */,
 				B2CCE4E726E873B6004990D2 /* RemoteDataSource.swift */,
+				B25A505A26E98DBD00FD1619 /* GeoFilteredLocations.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B262633126E6620F0038A331 /* Persistence.swift in Sources */,
+				B25A505B26E98DBD00FD1619 /* GeoFilteredLocations.swift in Sources */,
 				B262632A26E6620F0038A331 /* ContentView.swift in Sources */,
 				B262639626E688760038A331 /* LocationService.swift in Sources */,
 				B22122B026E6A62A00E04246 /* Location+CoreDataClass.swift in Sources */,
